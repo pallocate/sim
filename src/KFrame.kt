@@ -12,26 +12,26 @@ class KFrame () : JFrame(), WindowListener
 {
    init
    {
-      with( getContentPane() ) {
+      with( contentPane ) {
          add(JSplitPane( JSplitPane.VERTICAL_SPLIT ).apply {
             setTopComponent( JSplitPane().apply {
 
                setLeftComponent( JSplitPane().apply {
                   setLeftComponent( GUI.contactsPanel )
-                  setRightComponent( GUI.presentationPanel )
-                  setDividerLocation( 150 )
+                  setRightComponent( GUI.animationCanvas )
+                  setDividerLocation( 175 )
                   setDividerSize( 4 )
                })
 
                setRightComponent( GUI.infoPanel )
-               setDividerLocation( 650 )
+               setDividerLocation( 981 )
                setDividerSize( 4 )
             })
 
             setBottomComponent( GUI.outputPane )
-            setDividerLocation( 400 )
+            setDividerLocation( 605 )
             setDividerSize( 6 )
-            
+
          }, BorderLayout.CENTER )
 
          add( GUI.toolbar, BorderLayout.NORTH )
@@ -39,7 +39,7 @@ class KFrame () : JFrame(), WindowListener
       }
 
       setTitle( "Simulator" )
-      setSize( Dimension( 800, 600 ) )
+      setSize( Dimension( 1170, 808 ) )
       addWindowListener( this )
       setDefaultCloseOperation( WindowConstants.DO_NOTHING_ON_CLOSE )
       setVisible( true )

@@ -16,7 +16,7 @@ import javax.swing.ImageIcon
 class KToolbar () : JToolBar(), ActionListener
 {
    internal val doButton : JButton
-   internal val simulationCombo = KSimulationComboBox( Simulations.stringArray() )
+   internal val simulationCombo = KSimulationComboBox( Simulations.keys.toTypedArray() )
    internal val aspectCombo = KAspectComboBox(arrayOf( Aspect.ACCOUNT, Aspect.ACCOUNT_TX, Aspect.ASSETS,
       Aspect.ASSET_TX, Aspect.DETAIL, Aspect.SIGNATORIES ))
    internal var selectedAspect = Aspect.ACCOUNT
@@ -27,35 +27,33 @@ class KToolbar () : JToolBar(), ActionListener
    init
    {
       setFloatable( false )
-      addSeparator(Dimension( 8, 24 ))
 
+      addSeparator(Dimension( 8, 24 ))
       doButton = JButton().apply {
-         setActionCommand( EventHandler.INIT )
+         setActionCommand( EventHandler.SETUP )
          setBorder( null )
          setIcon( START_ICON )
       }.also {
          it.addActionListener( this )
          add( it )
       }
+      
       addSeparator(Dimension( 8, 24 ))
-
-      add(JButton().apply {
+      add( JButton().apply {
          setActionCommand( EventHandler.STOP )
          setBorder( null )
          setIcon(ImageIcon( "build/dist/resources/icons/media-playback-stop.png" ))
-      }.also {
-         it.addActionListener( this )
-      })
-      addSeparator(Dimension( 24, 24 ))
+      }.also {it.addActionListener( this )} )
 
+      addSeparator(Dimension( 24, 24 ))
       aspectCombo.setMaximumSize(Dimension( 100, 24 ))
       add( aspectCombo )
       aspectCombo.addItemListener( aspectCombo )
+
       addSeparator(Dimension( 24, 24 ))
-
       add(JLabel( "Simulation:" ))
-      addSeparator(Dimension( 8, 24 ))
 
+      addSeparator(Dimension( 8, 24 ))
       simulationCombo.setMaximumSize(Dimension( 175, 24 ))
       add( simulationCombo )
       simulationCombo.addItemListener( simulationCombo )
@@ -63,7 +61,7 @@ class KToolbar () : JToolBar(), ActionListener
 
    fun startButton ()
    {
-      doButton.setActionCommand( EventHandler.INIT )
+      doButton.setActionCommand( EventHandler.SETUP )
       doButton.setIcon( START_ICON )
    }
 

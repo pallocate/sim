@@ -1,10 +1,11 @@
 package sim
 
+import kotlin.reflect.KClass
 import pen.Log
 
 object EventHandler
 {
-   val INIT                                     = "INIT"
+   val SETUP                                    = "SETUP"
    val NEXT                                     = "NEXT"
    val STOP                                     = "STOP"
    var simulation : Simulation                  = VoidSimulation
@@ -14,23 +15,26 @@ object EventHandler
    {
       when (command)
       {
-         INIT ->
+         SETUP ->
          {
-            val selectedIndex = GUI.toolbar.simulationCombo.getSelectedIndex()
+            if (!(simulation is VoidSimulation))
+               stopSimulation()
 
-            if (selectedIndex >= 0)
+            val simulationName = GUI.toolbar.simulationCombo.getSelectedItem() as String
+            val selected = Simulations.get( simulationName )
+
+            if (selected != null)
             {
-               if (!(simulation is VoidSimulation))
-                  stopSimulation()
-
-               val selected = Simulations.simulations[selectedIndex]
                val constructors = selected.constructors
+
                if (!constructors.isEmpty())
                {
                   simulation = constructors.first().call()
 
                   with (GUI) {
-                     present({ "" })
+                     frame.setTitle( "Simulator - " + selected.simpleName )
+                     contactsPanel.list.setListData( simulation.contacts() )
+//                     presentationPanel.setImage()
                      outputPane.logPanel.clear()
                      outputPane.txPanel.clear()
                      toolbar.stepButton()
@@ -38,16 +42,13 @@ object EventHandler
 
                      try
                      {
-                        simulation.setup()
-                        val contacts = simulation.contacts()
                         statusBar.setText( "Simulation started" )
-                        contactsPanel.list.setListData( contacts )
-                        frame.setTitle( "Simulator - " + selected.simpleName )
+                        simulation.setup()
                      }
                      catch (e : Exception)
                      {
-                        printStackTrace( e )
                         stopSimulation()
+                        println( e )
                      }
                   }
                }
@@ -55,7 +56,7 @@ object EventHandler
          }
          NEXT ->
          {
-            GUI.present({ "" })
+//            GUI.presentationPanel.setImage()
             try
             {
                if (simulation.state == State.DONE)
@@ -73,8 +74,8 @@ object EventHandler
             }
             catch (e : Exception)
             {
-               printStackTrace( e )
                stopSimulation()
+               println( e )
             }
          }
          STOP -> stopSimulation()
@@ -89,20 +90,5 @@ object EventHandler
       simulation.state = State.UNDEFINED
       GUI.statusBar.setText( "Simulation stopped " )
       GUI.toolbar.startButton()
-   }
-
-   private fun printStackTrace (e : Exception)
-   {
-      val delim = "\n=============================================================\n"
-      val msg = "${e::class.simpleName}: ${e.message}"
-
-      println( delim )
-      Log.error( msg )
-      println( msg )
-      for (stackTraceElement in e.getStackTrace())
-         if (!stackTraceElement.isNativeMethod())
-            println( stackTraceElement.toString() )
-
-      println( delim )
    }
 }

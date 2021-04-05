@@ -1,5 +1,6 @@
 package sim
 
+import kotlin.reflect.KClass
 import pen.Log
 import pen.par.KContact
 import sim.simulations.formosa.KFormosa
@@ -26,8 +27,6 @@ object VoidSimulation : Simulation
    { Log.warn( "No simulation loaded" ) }
 }
 
-object Simulations
-{
-   val simulations = arrayOf( KFormosa::class )
-   fun stringArray () : Array<String?> = simulations.map({ it.simpleName }).toTypedArray()
-}
+val Simulations = mapOf<String, KClass<out Simulation>>(
+      "Formosa" to KFormosa::class
+   )

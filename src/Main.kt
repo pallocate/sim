@@ -11,17 +11,11 @@ object Main
    {
       Log.level = LogLevel.INFO
 
-      if (!args.isEmpty())
+      try
       {
-         val simulation = when (args.last().toLowerCase())
-         {
-            "formosa" -> KFormosa()
-            else -> VoidSimulation
-         }
-
-         GUI.start()
+         GUI.frame
       }
-      else
-         println( "Usage: sim SIMULATION\n" )
+      catch (t : Throwable)
+      { Log.critical( "" + t.message ) }
    }
 }
