@@ -1,8 +1,10 @@
 package sim
 
-import sim.simulations.formosa.KFormosa
 import pen.Log
 import pen.LogLevel
+import sim.gui.GUI
+import sim.gui.KFrame
+import sim.simulations.formosa.KFormosa
 
 object Main
 {
@@ -11,11 +13,22 @@ object Main
    {
       Log.level = LogLevel.INFO
 
-      try
+      if (args.isEmpty())
+         println( "Usage: sim SIMULATION\n" )
+      else
       {
-         GUI.frame
+         GUI.simulation = when (args.last().toLowerCase()) {
+            "formosa" -> KFormosa()
+            else -> VoidSimulation
+         }
+
+         if (GUI.simulation !is VoidSimulation)
+         {
+            try
+            {GUI.frame = KFrame( GUI.simulation )}
+            catch (t : Throwable)
+            { Log.critical( t.message.toString() ) }
+         }
       }
-      catch (t : Throwable)
-      { Log.critical( "" + t.message ) }
    }
 }

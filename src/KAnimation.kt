@@ -9,8 +9,11 @@ import pen.newScope
 
 class KAnimator ()
 {
-   class KAnimation (val name : String, val lastIdx : Int, val animationCanvas : Canvas)
+   class KAnimation (val name : String, val lastIdx : Int, val simulation : Simulation)
    {
+      companion object
+      { fun void () = KAnimation( "", 0, VoidSimulation ) }
+
       val backgroundImage = ImageIcon( "build/dist/resources/animations/${name}/bg.png" ).getImage()
       val images = ArrayList<Image>()
 
@@ -26,18 +29,21 @@ class KAnimator ()
 
       suspend fun animate ()
       {
-         for (imageNr in 0..lastIdx)
-         {
-            val bufferedImage = BufferedImage( 800, 600, BufferedImage.TYPE_INT_RGB )
-            val bGraphics = bufferedImage.createGraphics()
+         if (simulation is Canvas)
+            for (imageNr in 0..lastIdx)
+            {
+               val bufferedImage = BufferedImage( 800, 600, BufferedImage.TYPE_INT_RGB )
+               val biGraphics = bufferedImage.createGraphics()
 
-            bGraphics.drawImage( backgroundImage, 0, 0, null )
-            bGraphics.drawImage( images[imageNr], 0, 0, null )
-            delay( 100L )
+               biGraphics.drawImage( backgroundImage, 0, 0, null )
+               biGraphics.drawImage( images[imageNr], 0, 0, null )
+               delay( 100L )
 
-            animationCanvas.graphics.drawImage( bufferedImage, 0, 0, null )
-         }
+               simulation.graphics.drawImage( bufferedImage, 0, 0, null )
+            }
       }
+
+      fun isVoid() = simulation is VoidSimulation
    }
 
    private var scope = newScope()
@@ -47,9 +53,7 @@ class KAnimator ()
       if (!scope.isActive)
          scope = newScope()
 
-      scope.launch {
-         animation.animate()
-      }
+      scope.launch { animation.animate() }
    }
 
    fun cancel () = scope.cancel()

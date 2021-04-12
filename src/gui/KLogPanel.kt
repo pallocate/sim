@@ -1,4 +1,4 @@
-package sim.panels
+package sim.gui
 
 import java.awt.Color
 import java.awt.Insets

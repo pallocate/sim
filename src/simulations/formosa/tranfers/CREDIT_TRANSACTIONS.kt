@@ -1,4 +1,4 @@
-package sim.simulations.formosa.tests
+package sim.simulations.formosa.transfers
 
 import pen.now
 import pen.tests.Farmlands

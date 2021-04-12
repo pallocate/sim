@@ -1,4 +1,4 @@
-package sim
+package sim.gui
 
 import java.awt.GridLayout
 import javax.swing.JPanel
@@ -10,11 +10,12 @@ import javax.swing.event.ListSelectionListener
 import javax.swing.event.ListSelectionEvent
 import pen.par.KContact
 import kick.KSubmitter
+import sim.KQueryBuilder
 
 class KContactsPanel () : JPanel(), ListSelectionListener
 {
    internal val list = JList<KContact>()
-   internal val submitter = KSubmitter( GUI.infoPanel )
+   internal val submitter = KSubmitter( GUI.panels.info )
 
    init
    {

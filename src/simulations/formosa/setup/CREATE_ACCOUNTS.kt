@@ -12,8 +12,6 @@ import iroha.protocol.createAccount
 import iroha.protocol.createDomain
 import kick.*
 
-//factory@commons, hardware@supplier
-
 /** In this minimalistic example there are only two consumer councils, each with only one member. */
 val CREATE_ACCOUNTS = Transaction {
    payload {
