@@ -4,6 +4,7 @@ import java.awt.Image
 import java.awt.Canvas
 import java.awt.image.BufferedImage
 import javax.swing.ImageIcon
+import javax.swing.JPanel
 import kotlinx.coroutines.*
 import pen.newScope
 
@@ -21,7 +22,7 @@ class KAnimator ()
       {
          for (imageNr in 0..lastIdx)
          {
-            var num = imageNr.toString().padStart( 5, '0' )
+            var num = imageNr.toString().padStart( 4, '0' )
             val filename = "build/dist/resources/animations/${name}/animation/${num}.png"
             images.add(ImageIcon( filename ).getImage())
          }
@@ -29,7 +30,7 @@ class KAnimator ()
 
       suspend fun animate ()
       {
-         if (simulation is Canvas)
+         if (simulation is JPanel)
             for (imageNr in 0..lastIdx)
             {
                val bufferedImage = BufferedImage( 800, 600, BufferedImage.TYPE_INT_RGB )

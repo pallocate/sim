@@ -1,4 +1,4 @@
-package sim.simulations.formosa.transfers
+package sim.simulations.formosa.account
 
 import pen.now
 import pen.tests.David

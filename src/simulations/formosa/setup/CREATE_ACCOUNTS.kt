@@ -110,9 +110,9 @@ val CREATE_ACCOUNTS = Transaction {
             }
             command {
                createAccount {
-                  accountName = "hardware"
+                  accountName = "store"
                   domainId = "supplier"
-                  publicKey = Contacts.hardwarestore.address.publicKey.toHex()
+                  publicKey = Contacts.store.address.publicKey.toHex()
                }
             }
          }

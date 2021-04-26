@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cd /home/projects/build/bin/build-scripts
+
+case $1 in
+   "tedit" | "kick" | "pen" | "sim" | "plugins")
+       ./$1 $2 $3
+   ;;
+
+   *)
+      echo "Usage: build project [options]"
+      echo
+      echo "Projects:"
+      echo "tedit     kick           pen"
+      echo "sim       plugins"
+   ;;
+esac
