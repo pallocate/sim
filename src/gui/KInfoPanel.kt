@@ -18,17 +18,18 @@ class KInfoPanel () : JPanel(), Textable
       setLayout(GridLayout( 1, 1 ))
 
       editorPane = JEditorPane().apply {
-         putClientProperty( JEditorPane.HONOR_DISPLAY_PROPERTIES, true )
-         setFont(Font( getFont().getName(), Font.PLAIN, 10 ))
-         setBackground( Color.GRAY )
-         setForeground( Color.WHITE )
+//         putClientProperty( JEditorPane.HONOR_DISPLAY_PROPERTIES, true )
+//         setFont(Font( getFont().getName(), Font.PLAIN, 14 ))
+//         setBackground( Color.GRAY )
+//         setForeground( Color.BLACK )
          setMargin(Insets( 2, 5, 0, 0 ))
          setContentType( "text/html" )
-         setEnabled( false )
+//         setEnabled( false )
       }.also {
          add(JScrollPane( it ))
       }
    }
 
-   override fun text (string : String) = editorPane.setText( string + "\n" )
+   override fun text (string : String) = 
+      editorPane.setText( string )
 }

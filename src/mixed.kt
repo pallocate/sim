@@ -43,12 +43,12 @@ abstract class States
    abstract fun contacts () : Array<KContact>
 }
 object VoidStates : States()
-{
-   override fun states () = emptyList<KState>()
-   override fun contacts () = emptyArray<KContact>()
-}
+{override fun states()=emptyList<KState>();override fun contacts()=emptyArray<KContact>()}
 
 interface Simulation
 { val states : Map<String, States> }
 object VoidSimulation : Simulation
-{ override val states = mapOf<String, States>() }
+{override val states=mapOf<String,States>()}
+
+enum class Aspect
+{ ACCOUNT, ASSETS, DETAIL, SIGNATORIES }

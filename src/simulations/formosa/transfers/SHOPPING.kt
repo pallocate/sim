@@ -23,19 +23,12 @@ val SHOPPING = TxPair(
 
             commands {
                command {
-                  addAssetQuantity {
-                     assetId = "credit#artysan"
-                     amount = "3000.0000"
-                  }
-               }
-
-               command {
                   transferAsset {
                      srcAccountId = "patricia@artysan"
                      destAccountId = "store@supplier"
                      assetId = "credit#artysan"
                      description = "Jeans + sweater"
-                     amount = "3000.0000"
+                     amount = "3000"
                   }
                }
             }
@@ -57,7 +50,7 @@ val SHOPPING = TxPair(
                command {
                   subtractAssetQuantity {
                      assetId = "credit#artsan"
-                     amount = "3000.0000"
+                     amount = "3000"
                   }
                }
             }

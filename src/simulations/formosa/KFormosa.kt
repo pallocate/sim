@@ -12,9 +12,8 @@ import sim.States
 import sim.gui.GUI
 import sim.simulations.formosa.setup.*
 import sim.simulations.formosa.transfers.KTransfers
+import sim.simulations.formosa.administration.KAdministration
 
-/* Accounts used in the simulation has to be created as soon as possible.
- * Otherwise operations relying on the existence of thoose accounts will fail. */
 class KFormosa () : JPanel(), Simulation
 {
    val defaultBackground = ImageIcon( "build/dist/resources/images/formosa.png" ).getImage()
@@ -24,6 +23,8 @@ class KFormosa () : JPanel(), Simulation
       Log.info( "Setting up the economy.." )
 
       KSetuper().setup(
+         /* Accounts used in the simulation has to be created as soon as possible.
+          * Otherwise operations relying on the existence of thoose accounts will fail. */
          CREATE_ACCOUNTS,
          listOf( CONSUMER_COUNCILS, WORKERS_COUNCILS, ETC )
       )
@@ -38,6 +39,6 @@ class KFormosa () : JPanel(), Simulation
    }
 
    override val states by lazy {mapOf<String, States>(
-      "Transfers" to KTransfers()
+      "Transfers" to KTransfers(), "Administration" to KAdministration()
    )}
 }

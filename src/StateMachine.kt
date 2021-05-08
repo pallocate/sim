@@ -10,7 +10,7 @@ object StateMachine
    val STOP                                            = "STOP"
    var states : States                                 = VoidStates
 
-   fun handle (command : String)
+   fun respond (command : String)
    {
       when (command)
       {

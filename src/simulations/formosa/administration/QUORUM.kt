@@ -1,4 +1,4 @@
-package sim.simulations.formosa.account
+package sim.simulations.formosa.administration
 
 import pen.now
 import pen.tests.Patricia
@@ -12,8 +12,7 @@ import iroha.protocol.addSignatory
 import iroha.protocol.removeSignatory
 import kick.*
 
-/** Patricia adds and removes signatories and changes the number of required. */
-val MULTI_SIGN = TxPair(
+val QUORUM = TxPair(
 
    first =
    Transaction {
@@ -24,7 +23,6 @@ val MULTI_SIGN = TxPair(
             quorum = 1
 
             commands {
-               /* Two signatories are added. */
                command {
                   addSignatory {
                      accountId = "patricia@artysan"
@@ -37,7 +35,6 @@ val MULTI_SIGN = TxPair(
                      publicKey = Artysan.irohaSigner().publicKey()
                   }
                }
-               /* Two signatures are required. */
                command {
                   setAccountQuorum {
                      accountId = "patricia@artysan"
@@ -59,14 +56,12 @@ val MULTI_SIGN = TxPair(
             quorum = 2
 
             commands {
-               /* Only one signature is required. */
                command {
                   setAccountQuorum {
                      accountId = "patricia@artysan"
                      quorum = 1
                   }
                }
-               /* One signatory is removed. */
                command {
                   removeSignatory {
                      accountId = "patricia@artysan"

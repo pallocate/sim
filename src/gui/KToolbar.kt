@@ -19,7 +19,7 @@ class KToolbar () : JToolBar(), ActionListener
 {
    internal val doButton : JButton
    internal val objectiveCombo = KStatesComboBox( GUI.simulation.states.keys.toTypedArray() )
-   internal val aspectCombo = KAspectComboBox(arrayOf( Aspect.ACCOUNT, Aspect.ACCOUNT_TX, Aspect.ASSETS, Aspect.ASSET_TX, Aspect.DETAIL, Aspect.SIGNATORIES ))
+   internal val aspectCombo = KAspectComboBox(arrayOf( Aspect.ACCOUNT, Aspect.ASSETS, Aspect.DETAIL, Aspect.SIGNATORIES ))
    internal var selectedAspect = Aspect.ACCOUNT
 
    private val START_ICON = ImageIcon( "build/dist/resources/icons/media-playback-start.png" )
@@ -52,7 +52,7 @@ class KToolbar () : JToolBar(), ActionListener
       aspectCombo.addItemListener( aspectCombo )
 
       addSeparator(Dimension( 24, 24 ))
-      add(JLabel( "Statess:" ))
+      add(JLabel( "States:" ))
 
       addSeparator(Dimension( 8, 24 ))
       objectiveCombo.setMaximumSize(Dimension( 175, 24 ))
@@ -95,6 +95,6 @@ class KToolbar () : JToolBar(), ActionListener
 
    override fun actionPerformed (e : ActionEvent)
    {
-      StateMachine.handle( e.getActionCommand() )
+      StateMachine.respond( e.getActionCommand() )
    }
 }

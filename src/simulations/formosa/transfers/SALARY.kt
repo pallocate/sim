@@ -24,7 +24,7 @@ val SALARY = listOf (
                command {
                   addAssetQuantity {
                      assetId = "credit#artysan"
-                     amount = "350000"
+                     amount = "75000"
                   }
                }
                command {
@@ -33,7 +33,7 @@ val SALARY = listOf (
                      destAccountId = "patricia@artysan"
                      assetId = "credit#artysan"
                      description = "salary"
-                     amount = "350000"
+                     amount = "75000"
                   }
                }
             }
@@ -53,7 +53,7 @@ val SALARY = listOf (
                command {
                   addAssetQuantity {
                      assetId = "credit#crowbeach"
-                     amount = "250000"
+                     amount = "50000"
                   }
                }
                command {
@@ -62,7 +62,7 @@ val SALARY = listOf (
                      destAccountId = "david@crowbeach"
                      assetId = "credit#crowbeach"
                      description = "salary"
-                     amount = "250000"
+                     amount = "50000"
                   }
                }
             }

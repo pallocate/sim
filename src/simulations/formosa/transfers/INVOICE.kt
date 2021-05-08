@@ -28,7 +28,6 @@ val INVOICE = TxPair(
                      amount = "10000.0000"
                   }
                }
-
                command {
                   transferAsset {
                      srcAccountId = "university@commons"
