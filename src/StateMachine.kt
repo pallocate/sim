@@ -8,7 +8,7 @@ object StateMachine
    val START                                           = "START"
    val NEXT                                            = "NEXT"
    val STOP                                            = "STOP"
-   var states : States                                 = VoidStates
+   private var states : States                                 = VoidStates
 
    fun respond (command : String)
    {

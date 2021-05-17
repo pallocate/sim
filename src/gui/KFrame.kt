@@ -9,9 +9,8 @@ import javax.swing.JSplitPane
 import javax.swing.JTabbedPane
 import java.awt.event.WindowListener
 import java.awt.event.WindowEvent
-import sim.Simulation
 
-class KFrame (simulation : Simulation) : JFrame(), WindowListener
+class KFrame () : JFrame(), WindowListener
 {
    init
    {

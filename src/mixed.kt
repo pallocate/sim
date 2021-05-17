@@ -1,54 +1,32 @@
 package sim
 
-import pen.Log
-import pen.par.KContact
-import kick.KCommiter
-import kick.Commitable
-import sim.KAnimator.KAnimation
+import java.awt.Image
+import java.awt.image.BufferedImage
+import java.awt.Graphics
+import javax.swing.JPanel
 import sim.gui.GUI
 
-data class KState (val commitable : Commitable, val text : String = "", val animation : KAnimation = KAnimation.void()) {}
-
-abstract class States
+abstract class SimulationPanel : JPanel()
 {
-   protected val commiter = KCommiter()
-   protected val animator = KAnimator()
-
-   val iterator = states().listIterator()
-
-   fun next ()
+   override fun paintComponent (g : Graphics)
    {
-      if (iterator.hasNext())
-      {
-         val state = iterator.next()
+      val popupVisible = GUI.toolbar.objectiveCombo.isPopupVisible()
 
-         if (state.text != "")
-            Log.info( state.text + "\n\n" )
-
-         if (!state.animation.isVoid())
-            animator.runAnimation( state.animation )
-
-         commiter.commit( state.commitable, GUI.panels.transactions )
-      }
+      if (!popupVisible)
+         g.drawImage( background, 0, 0, null )
    }
 
-   fun hasNext () = iterator.hasNext()
-   fun cancel ()
-   {
-      animator.cancel()
-      commiter.cancel()
-   }
-
-   abstract fun states () : List<KState> 
-   abstract fun contacts () : Array<KContact>
+   abstract val states : Map<String, States>
+   abstract val background : Image
 }
-object VoidStates : States()
-{override fun states()=emptyList<KState>();override fun contacts()=emptyArray<KContact>()}
+object VoidSimulationPanel : SimulationPanel()
+{
+   override val states=mapOf<String,States>()
+   override val background = BufferedImage(1,1,BufferedImage.TYPE_INT_RGB)
+}
 
-interface Simulation
-{ val states : Map<String, States> }
-object VoidSimulation : Simulation
-{override val states=mapOf<String,States>()}
-
+/** What aspect of an account to query. */
 enum class Aspect
-{ ACCOUNT, ASSETS, DETAIL, SIGNATORIES }
+{ ACCOUNT, ACCOUNT_TX, ASSETS, ASSET_TX, DETAIL, SIGNATORIES }
+
+internal var queryCounter = (Math.random()*1000000).toLong()

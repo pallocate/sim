@@ -23,6 +23,22 @@ val ETC = TxPair(
             quorum = 1
 
             commands {
+
+               /* Consumer councils */
+               command {
+                  appendRole {
+                     accountId = "artysan@artysan"
+                     roleName = "council"
+                  }
+               }
+               command {
+                  appendRole {
+                     accountId = "crowbeach@crowbeach"
+                     roleName = "council"
+                  }
+               }
+
+               /* Persons */
                command {
                   appendRole {
                      accountId = "patricia@artysan"
@@ -33,6 +49,14 @@ val ETC = TxPair(
                   appendRole {
                      accountId = "david@crowbeach"
                      roleName = "member"
+                  }
+               }
+               
+               /* Clothes shop */
+               command {
+                  appendRole {
+                     accountId = "clothesshop@store"
+                     roleName = "council"
                   }
                }
             }
@@ -65,19 +89,12 @@ val ETC = TxPair(
                }
                command {
                   appendRole {
-                     accountId = "store@supplier"
+                     accountId = "clothesshop@store"
                      roleName = "debitor"
                   }
                }
 
                /* Creating the credits. */
-               command {
-                  createAsset {
-                     assetName = "credit"
-                     domainId = "commons"
-                     precision = 4
-                  }
-               }
                command {
                   createAsset {
                      assetName = "credit"

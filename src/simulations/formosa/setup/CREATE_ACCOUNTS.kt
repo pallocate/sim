@@ -21,22 +21,8 @@ val CREATE_ACCOUNTS = Transaction {
          quorum = 1
 
          commands {
-            /* Consumer councils are a part of the commons. */
-            command {
-               createAccount {
-                  accountName = "artysan"
-                  domainId = "commons"
-                  publicKey = Contacts.artysan.address.publicKey.toHex()
-               }
-            }
-            command {
-               createAccount {
-                  accountName = "crowbeach"
-                  domainId = "commons"
-                  publicKey = Contacts.crowbeach.address.publicKey.toHex()
-               }
-            }
-            /* But they also have their own domain. */
+
+            /* Artysan consumer council */
             command {
                createDomain {
                   domainId = "artysan"
@@ -50,25 +36,26 @@ val CREATE_ACCOUNTS = Transaction {
                   publicKey = Contacts.artysan.address.publicKey.toHex()
                }
             }
-            command {
-               createDomain {
-                  domainId = "crowbeach"
-                  defaultRole = "default"
-               }
-            }
-            command {
-               createAccount {
-                  accountName = "crowbeach"
-                  domainId = "crowbeach"
-                  publicKey = Contacts.crowbeach.address.publicKey.toHex()
-               }
-            }
-            /* All persons in the economy is a member of exactly one consumption council. */
             command {
                createAccount {
                   accountName = "patricia"
                   domainId = "artysan"
                   publicKey = Contacts.patricia.address.publicKey.toHex()
+               }
+            }
+
+            /* Crow beach consumer council */
+            command {
+               createDomain {
+                  domainId = "crowbeach"
+                  defaultRole = "default"
+               }
+            }
+            command {
+               createAccount {
+                  accountName = "crowbeach"
+                  domainId = "crowbeach"
+                  publicKey = Contacts.crowbeach.address.publicKey.toHex()
                }
             }
             command {
@@ -79,7 +66,7 @@ val CREATE_ACCOUNTS = Transaction {
                }
             }
 
-            /* Other participants */
+            /* Workers councils */
             command {
                createAccount {
                   accountName = "factory"
@@ -108,11 +95,13 @@ val CREATE_ACCOUNTS = Transaction {
                   publicKey = Contacts.university.address.publicKey.toHex()
                }
             }
+            
+            /* A clothing store */
             command {
                createAccount {
-                  accountName = "store"
-                  domainId = "supplier"
-                  publicKey = Contacts.store.address.publicKey.toHex()
+                  accountName = "clothesshop"
+                  domainId = "store"
+                  publicKey = Contacts.clothesshop.address.publicKey.toHex()
                }
             }
          }

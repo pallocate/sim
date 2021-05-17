@@ -19,13 +19,13 @@ object Main
       {
          GUI.simulation = when (args.last().toLowerCase()) {
             "formosa" -> KFormosa()
-            else -> VoidSimulation
+            else -> VoidSimulationPanel
          }
 
-         if (GUI.simulation !is VoidSimulation)
+         if (GUI.simulation !is VoidSimulationPanel)
          {
             try
-            {GUI.frame = KFrame( GUI.simulation )}
+            {GUI.frame = KFrame()}
             catch (t : Throwable)
             { Log.critical( t.message.toString() ) }
          }

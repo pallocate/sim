@@ -3,11 +3,8 @@ Sets up a simple economy using the fictive Formosa village example.
 CREATE_ACCOUNTS.kt
 Creates accounts and domains of the economy.
 
-CONSUMER_COUNCILS.kt
-Sets up Artysan and Crow beach consumer councils.
-
 WORKERS_COUNCILS.kt
 Sets up Factory, Farmlands, Hospital and University workers council.
 
 ETC.kt
-Sets up Paticia, David and some credits.
+Sets up consumer councils, persons and credits.
