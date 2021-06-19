@@ -1,6 +1,6 @@
 package sim.simulations.formosa.administration
 
 import sim.Aspect
-import sim.KAccountQuery
+import sim.KAccountQueryBuilder
 
-val READ_TRANSACTIONS = KAccountQuery( "patricia", "artysan", Aspect.ASSET_TX ).build()
+val READ_TRANSACTIONS = KAccountQueryBuilder( "patricia", "artysan", Aspect.ASSET_TX ).build()

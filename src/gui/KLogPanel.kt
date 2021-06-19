@@ -11,6 +11,7 @@ import pen.LogManager
 import pen.LogAgent
 import pen.LogLevel
 
+/** To show log output. */
 class KLogPanel : JPanel(), LogAgent
 {
    private val textArea = JTextArea()

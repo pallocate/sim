@@ -12,13 +12,13 @@ import javax.swing.JComboBox
 import javax.swing.JToolBar
 import javax.swing.ImageIcon
 import sim.Aspect
-import sim.StateMachine
+import sim.Progressor
 
 /** The application toolbar. */
 class KToolbar () : JToolBar(), ActionListener
 {
    internal val doButton : JButton
-   internal val objectiveCombo = KStatesComboBox( GUI.simulation.states.keys.toTypedArray() )
+   internal val simulationCombo = KSimulationComboBox( GUI.simulation.simulations.keys.toTypedArray() )
    internal val aspectCombo = KAspectComboBox(arrayOf( Aspect.ACCOUNT, Aspect.ASSETS, Aspect.DETAIL, Aspect.SIGNATORIES ))
    internal var selectedAspect = Aspect.ACCOUNT
 
@@ -31,7 +31,7 @@ class KToolbar () : JToolBar(), ActionListener
 
       addSeparator(Dimension( 8, 24 ))
       doButton = JButton().apply {
-         setActionCommand( StateMachine.START )
+         setActionCommand( Progressor.START )
          setBorder( null )
          setIcon( START_ICON )
       }.also {
@@ -41,7 +41,7 @@ class KToolbar () : JToolBar(), ActionListener
 
       addSeparator(Dimension( 8, 24 ))
       add( JButton().apply {
-         setActionCommand( StateMachine.STOP )
+         setActionCommand( Progressor.STOP )
          setBorder( null )
          setIcon(ImageIcon( "build/dist/resources/icons/media-playback-stop.png" ))
       }.also {it.addActionListener( this )} )
@@ -52,23 +52,23 @@ class KToolbar () : JToolBar(), ActionListener
       aspectCombo.addItemListener( aspectCombo )
 
       addSeparator(Dimension( 24, 24 ))
-      add(JLabel( "States:" ))
+      add(JLabel( "Simulation:" ))
 
       addSeparator(Dimension( 8, 24 ))
-      objectiveCombo.setMaximumSize(Dimension( 175, 24 ))
-      add( objectiveCombo )
-      objectiveCombo.addItemListener( objectiveCombo )
+      simulationCombo.setMaximumSize(Dimension( 175, 24 ))
+      add( simulationCombo )
+      simulationCombo.addItemListener( simulationCombo )
    }
 
    fun startButton ()
    {
-      doButton.setActionCommand( StateMachine.START )
+      doButton.setActionCommand( Progressor.START )
       doButton.setIcon( START_ICON )
    }
 
    fun stepButton ()
    {
-      doButton.setActionCommand( StateMachine.NEXT )
+      doButton.setActionCommand( Progressor.NEXT )
       doButton.setIcon( NEXT_ICON )
    }
 
@@ -84,7 +84,7 @@ class KToolbar () : JToolBar(), ActionListener
       }
    }
 
-   inner class KStatesComboBox (stringArray : Array<String?>) : JComboBox<String>( stringArray ), ItemListener
+   inner class KSimulationComboBox (stringArray : Array<String?>) : JComboBox<String>( stringArray ), ItemListener
    {
       override fun itemStateChanged (e : ItemEvent)
       {
@@ -95,6 +95,6 @@ class KToolbar () : JToolBar(), ActionListener
 
    override fun actionPerformed (e : ActionEvent)
    {
-      StateMachine.respond( e.getActionCommand() )
+      Progressor.command( e.getActionCommand() )
    }
 }

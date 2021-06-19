@@ -4,13 +4,11 @@ import java.awt.Color
 import java.awt.Dimension
 import javax.swing.JLabel
 import javax.swing.border.LineBorder
-import sim.SimulationPanel
-import sim.VoidSimulationPanel
 
 /** Contains internally used references to some graphical components. */
 object GUI
 {
-   internal var simulation : SimulationPanel                 = VoidSimulationPanel
+   internal var simulation : SimulationPanel            = VoidSimulationPanel
    internal var frame : KFrame?                         = null
    internal val toolbar by lazy { KToolbar() }
 

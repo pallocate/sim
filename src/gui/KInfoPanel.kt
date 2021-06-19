@@ -1,7 +1,5 @@
 package sim.gui
 
-import java.awt.Font
-import java.awt.Color
 import java.awt.Insets
 import java.awt.GridLayout
 import javax.swing.JPanel
@@ -9,6 +7,7 @@ import javax.swing.JScrollPane
 import javax.swing.JEditorPane
 import kick.Textable
 
+/** To display different aspects of account informaton. */
 class KInfoPanel () : JPanel(), Textable
 {
    private val editorPane : JEditorPane

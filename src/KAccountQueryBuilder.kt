@@ -7,9 +7,13 @@ import iroha.protocol.Queries.*
 import kick.createSignature
 import pen.tests.Credmin
 
-class KAccountQuery (private val account : String, private val domain : String, private val aspect : Aspect)
+/** Builds account related queries. */
+class KAccountQueryBuilder (
+   private val accountName : String,
+   private val domainName : String,
+   private val aspect : Aspect
+)
 {
-   /** Builds a query depending on the supplied aspect. */
    fun build () : Query
    {
       val payload = payloadBuilder().build()
@@ -44,14 +48,14 @@ class KAccountQuery (private val account : String, private val domain : String, 
       .setCreatedTime( now() )
       .setQueryCounter( queryCounter++ )
 
-   private fun accountId () = "$account@$domain"
+   private fun accountId () = "$accountName@$domainName"
 
    private fun getAccount () = GetAccount.newBuilder().setAccountId( accountId() )
    private fun getAccountTransactions () = GetAccountTransactions.newBuilder().setAccountId( accountId() )
    private fun getAccountAssets () = GetAccountAssets.newBuilder().setAccountId( accountId() )
    private fun getAccountAssetTransactions () = GetAccountAssetTransactions.newBuilder()
       .setAccountId( accountId() )
-      .setAssetId( "credit#$domain" )
+      .setAssetId( "credit#$domainName" )
       .setPaginationMeta(
          TxPaginationMeta.newBuilder().setPageSize( 1 )
       )

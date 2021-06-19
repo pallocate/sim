@@ -23,7 +23,7 @@ val PAYING = Transaction {
                   srcAccountId = "patricia@artysan"
                   destAccountId = "clothesshop@store"
                   assetId = "credit#artysan"
-                  description = "53101504,53110602" // Trousers, shoes
+                  description = "'products': { '53101500': 1, '53101604': 2 }"  // A pair of trousers and two blouses.
                   amount = "3000"
                }
             }

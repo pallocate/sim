@@ -9,6 +9,7 @@ import javax.swing.text.DefaultCaret
 import javax.swing.JScrollPane
 import kick.Textable
 
+/** To display transaction outputs. */
 class KTransactionPanel : JPanel(), Textable
 {
    private val textArea = JTextArea()

@@ -10,7 +10,7 @@ import javax.swing.event.ListSelectionListener
 import javax.swing.event.ListSelectionEvent
 import pen.par.KContact
 import kick.KSubmiter
-import sim.KAccountQuery
+import sim.KAccountQueryBuilder
 
 class KContactsPanel () : JPanel(), ListSelectionListener
 {
@@ -33,7 +33,7 @@ class KContactsPanel () : JPanel(), ListSelectionListener
          val address = (list.selectedValue as KContact).address
          val aspect = GUI.toolbar.selectedAspect
 
-         val queryBuilder = KAccountQuery( address.member, address.council, aspect )
+         val queryBuilder = KAccountQueryBuilder( address.member, address.council, aspect )
          submitter.submit( queryBuilder.build(), GUI.panels.info )
       }
    }

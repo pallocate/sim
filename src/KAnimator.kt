@@ -1,12 +1,12 @@
 package sim
 
 import java.awt.Image
-import java.awt.Canvas
 import java.awt.image.BufferedImage
 import javax.swing.ImageIcon
-import javax.swing.JPanel
 import kotlinx.coroutines.*
 import pen.newScope
+import sim.gui.SimulationPanel
+import sim.gui.VoidSimulationPanel
 
 /** Runs a animation on a simulation panel. */
 class KAnimator ()

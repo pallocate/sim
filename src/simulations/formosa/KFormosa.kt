@@ -3,15 +3,17 @@ package sim.simulations.formosa
 import javax.swing.ImageIcon
 import pen.Log
 import kick.KSetuper
-import sim.SimulationPanel
-import sim.States
-import sim.simulations.formosa.setup.*
+import sim.Simulation
+import sim.gui.SimulationPanel
+import sim.simulations.formosa.setup.CREATE_ACCOUNTS
+import sim.simulations.formosa.setup.WORKERS_COUNCILS
+import sim.simulations.formosa.setup.ETC
 import sim.simulations.formosa.shopping.KShopping
 import sim.simulations.formosa.administration.KAdministration
 
 class KFormosa () : SimulationPanel()
 {
-   override val background = ImageIcon( "build/dist/resources/images/formosa.png" ).getImage()
+   override val background = ImageIcon( "build/dist/resources/images/artysan.png" ).getImage()
 
    init
    {
@@ -25,7 +27,7 @@ class KFormosa () : SimulationPanel()
       )
    }
 
-   override val states by lazy {mapOf<String, States>(
+   override val simulations by lazy {mapOf<String, Simulation>(
       "Shopping" to KShopping(), "Administration" to KAdministration()
    )}
 }

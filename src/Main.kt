@@ -5,6 +5,7 @@ import pen.LogLevel
 import sim.gui.GUI
 import sim.gui.KFrame
 import sim.simulations.formosa.KFormosa
+import sim.gui.VoidSimulationPanel
 
 object Main
 {
@@ -17,7 +18,7 @@ object Main
          println( "Usage: sim SIMULATION\n" )
       else
       {
-         GUI.simulation = when (args.last().toLowerCase()) {
+         GUI.simulation = when (args.last().lowercase()) {
             "formosa" -> KFormosa()
             else -> VoidSimulationPanel
          }

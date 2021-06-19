@@ -1,6 +1,6 @@
 package sim.simulations.formosa.shopping
 
 import sim.Aspect
-import sim.KAccountQuery
+import sim.KAccountQueryBuilder
 
-val READ_DETAIL = KAccountQuery( "patricia", "artysan", Aspect.DETAIL ).build()
+val READ_DETAIL = KAccountQueryBuilder( "patricia", "artysan", Aspect.DETAIL ).build()
