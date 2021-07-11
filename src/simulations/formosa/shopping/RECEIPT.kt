@@ -2,7 +2,7 @@ package sim.simulations.formosa.shopping
 
 import pen.now
 import pen.eco.*
-import pen.tests.ClothesShop
+import pen.utils.ClothesShop
 import kick.*
 import iroha.protocol.Transaction
 import iroha.protocol.payload
@@ -12,7 +12,7 @@ import iroha.protocol.setAccountDetail
 
 /** Patricias consumption list. What she has consumed so far in the clotesshop during the year. */
 val consumptionList = serializePQ(
-   KProductQuantities(KPqMeta( year = 2021 )).apply {
+   KProductQuantities(KMeta( year = 2021 )).apply {
       plus( 53101500L, 1L )                                                     // A pair of troucers
       plus( 53101604L, 2L )                                                     // Two blouses
    }

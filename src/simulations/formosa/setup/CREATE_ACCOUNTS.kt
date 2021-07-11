@@ -2,9 +2,9 @@ package sim.simulations.formosa.setup
 
 import pen.now
 import pen.toHex
-import pen.tests.Admin
-import pen.tests.Credmin
-import pen.tests.Contacts
+import pen.utils.Admin
+import pen.utils.Credmin
+import pen.utils.Contacts
 import iroha.protocol.Transaction
 import iroha.protocol.payload
 import iroha.protocol.reducedPayload

@@ -1,8 +1,8 @@
 package sim.simulations.formosa.shopping
 
 import pen.now
-import pen.tests.Factory
-import pen.tests.Hospital
+import pen.utils.Factory
+import pen.utils.Hospital
 import iroha.protocol.Transaction
 import iroha.protocol.payload
 import iroha.protocol.reducedPayload

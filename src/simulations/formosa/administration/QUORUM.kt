@@ -1,9 +1,9 @@
 package sim.simulations.formosa.administration
 
 import pen.now
-import pen.tests.Patricia
-import pen.tests.Artysan
-import pen.tests.David
+import pen.utils.Patricia
+import pen.utils.Artysan
+import pen.utils.David
 import iroha.protocol.Transaction
 import iroha.protocol.payload
 import iroha.protocol.reducedPayload

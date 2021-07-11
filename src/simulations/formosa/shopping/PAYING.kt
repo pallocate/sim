@@ -1,7 +1,7 @@
 package sim.simulations.formosa.shopping
 
 import pen.now
-import pen.tests.Patricia
+import pen.utils.Patricia
 import kick.*
 import iroha.protocol.Transaction
 import iroha.protocol.payload

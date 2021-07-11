@@ -5,7 +5,7 @@ import pen.IrohaSigner
 import iroha.protocol.Queries.Query.Payload
 import iroha.protocol.Queries.*
 import kick.createSignature
-import pen.tests.Credmin
+import pen.utils.Credmin
 
 /** Builds account related queries. */
 class KAccountQueryBuilder (

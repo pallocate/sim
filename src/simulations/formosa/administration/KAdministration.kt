@@ -1,6 +1,6 @@
 package sim.simulations.formosa.administration
 
-import pen.tests.Contacts
+import pen.utils.Contacts
 import kick.*
 import sim.*
 import sim.KAnimator.KAnimation

@@ -1,6 +1,6 @@
 package sim.simulations.formosa.shopping
 
-import pen.tests.Contacts
+import pen.utils.Contacts
 import kick.*
 import sim.*
 import sim.KAnimator.KAnimation
@@ -19,7 +19,8 @@ class KShopping () : Simulation()
          KQuery( READ_DETAIL ),
          "Patricia vists a shop to buy some clothes. She 'blips' with her mobile and behind the scenes,\n" +
          "the shopping list is transfered using NFC, BLE or HTTPS and the total gets presented to her.\n" +
-         "The shop retrieves Patricias previous consumption in the shop(if any) from her account detail."
+         "The shop retrieves Patricias previous consumption in the shop(if any) from her account detail.",
+         KAnimation( "formosa/scene2", 54, GUI.simulation )
       ),
 
       KCommitBundle(
