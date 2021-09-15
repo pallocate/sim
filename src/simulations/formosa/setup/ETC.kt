@@ -62,7 +62,7 @@ val ETC = TxPair(
             }
          }
       }
-      sign( Admin.irohaSigner() )
+      sign( Admin.irohaSignatory() )
    },
 
    second =
@@ -112,6 +112,6 @@ val ETC = TxPair(
             }
          }
       }
-      sign( Credmin.irohaSigner() )
+      sign( Credmin.irohaSignatory() )
    }
 )

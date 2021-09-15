@@ -36,5 +36,5 @@ val PAYING = Transaction {
          }
       }
    }
-   sign( Patricia.irohaSigner() )
+   sign( Patricia.irohaSignatory() )
 }

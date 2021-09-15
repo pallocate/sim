@@ -44,5 +44,5 @@ val RECEIPT = Transaction {
       }
    }
 
-   sign( ClothesShop.irohaSigner() )
+   sign( ClothesShop.irohaSignatory() )
 }

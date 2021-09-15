@@ -39,5 +39,5 @@ val SALARY = Transaction {
       }
    }
    
-   sign( Factory.irohaSigner() )
+   sign( Factory.irohaSignatory() )
 }

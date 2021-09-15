@@ -108,5 +108,5 @@ val CREATE_ACCOUNTS = Transaction {
       }
    }
 
-   sign( Admin.irohaSigner() )
+   sign( Admin.irohaSignatory() )
 }

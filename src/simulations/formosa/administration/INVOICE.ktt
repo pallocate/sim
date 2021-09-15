@@ -40,7 +40,7 @@ val INVOICE = TxPair(
             }
          }
       }
-      sign( University.irohaSigner() )
+      sign( University.irohaSignatory() )
    },
 
    second =
@@ -61,6 +61,6 @@ val INVOICE = TxPair(
             }
          }
       }
-      sign( Farmlands.irohaSigner() )
+      sign( Farmlands.irohaSignatory() )
    }
 )

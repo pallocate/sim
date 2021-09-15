@@ -50,7 +50,7 @@ val WORKERS_COUNCILS = TxPair(
          }
       }
       
-      sign( Admin.irohaSigner() )
+      sign( Admin.irohaSignatory() )
    },
 
    second =
@@ -90,6 +90,6 @@ val WORKERS_COUNCILS = TxPair(
          }
       }
       
-      sign( Credmin.irohaSigner() )
+      sign( Credmin.irohaSignatory() )
    }
 )

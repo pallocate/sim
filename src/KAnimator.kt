@@ -21,7 +21,7 @@ class KAnimator ()
       private val backgroundImage = ImageIcon( "build/dist/resources/animations/${name}/bg.png" ).getImage()
       private val images = ArrayList<Image>()
 
-      init
+      internal suspend fun animate ()
       {
          for (imageNr in 0..lastIdx)
          {
@@ -29,10 +29,7 @@ class KAnimator ()
             val filename = "build/dist/resources/animations/${name}/animation/${num}.png"
             images.add(ImageIcon( filename ).getImage())
          }
-      }
 
-      internal suspend fun animate ()
-      {
          for (imageNr in 0..lastIdx)
          {
             val bufferedImage = BufferedImage( 800, 600, BufferedImage.TYPE_INT_RGB )
@@ -44,6 +41,8 @@ class KAnimator ()
 
             simulation.graphics.drawImage( bufferedImage, 0, 0, null )
          }
+         
+         images.clear()
       }
 
       fun isVoid() = simulation is VoidSimulationPanel

@@ -25,12 +25,13 @@ class KShopping () : Simulation()
 
       KCommitBundle(
          KTransaction( PAYING ),
-         "The required credits are transfered and the shop gets write access to her account detail."
+         "The required credits are transfered and the shop gets write access to her account detail.",
+         KAnimation( "formosa/scene3", 35, GUI.simulation )
       ),
 
       KCommitBundle(
          KTransaction( RECEIPT ),
-         "The shop receives the credits and updates Patricias consumption list with the new products."
+         "The shop verifies the transfer and updates Patricias consumption list with the new products."
       )
    )
 

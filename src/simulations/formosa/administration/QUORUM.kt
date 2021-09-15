@@ -26,13 +26,13 @@ val QUORUM = TxPair(
                command {
                   addSignatory {
                      accountId = "patricia@artysan"
-                     publicKey = David.irohaSigner().publicKey()
+                     publicKey = David.irohaSignatory().publicKey()
                   }
                }
                command {
                   addSignatory {
                      accountId = "patricia@artysan"
-                     publicKey = Artysan.irohaSigner().publicKey()
+                     publicKey = Artysan.irohaSignatory().publicKey()
                   }
                }
                command {
@@ -44,7 +44,7 @@ val QUORUM = TxPair(
             }
          }
       }
-      sign( Patricia.irohaSigner() )
+      sign( Patricia.irohaSignatory() )
    },
 
    second =
@@ -65,13 +65,13 @@ val QUORUM = TxPair(
                command {
                   removeSignatory {
                      accountId = "patricia@artysan"
-                     publicKey = Artysan.irohaSigner().publicKey()
+                     publicKey = Artysan.irohaSignatory().publicKey()
                   }
                }
             }
          }
       }
-      sign( David.irohaSigner() )
-      sign( Artysan.irohaSigner() )
+      sign( David.irohaSignatory() )
+      sign( Artysan.irohaSignatory() )
    }
 )

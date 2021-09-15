@@ -1,7 +1,7 @@
 package sim
 
 import pen.now
-import pen.IrohaSigner
+import pen.IrohaSignatory
 import iroha.protocol.Queries.Query.Payload
 import iroha.protocol.Queries.*
 import kick.createSignature
@@ -25,7 +25,7 @@ class KAccountQueryBuilder (
          .build()
    }
 
-   private fun signature (bytes : ByteArray) = createSignature( bytes, Credmin.irohaSigner() )
+   private fun signature (bytes : ByteArray) = createSignature( bytes, Credmin.irohaSignatory() )
 
    private fun payloadBuilder () : Payload.Builder
    {
