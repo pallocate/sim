@@ -1,10 +1,10 @@
 #!/bin/sh
 
-cd /home/projects/pen/pen
+cd /home/projects/pef/pef
 
 ###  Print usage  ###
 printUsage () {
-   echo "Usage: pen task [option]"
+   echo "Usage: pef task [option]"
    echo
    echo "Tasks:"
    echo "all            linux          wasm"
@@ -19,7 +19,7 @@ fi
 ###  JVM  ###
 if [ $task = "jvm" ]; then
    DEPENDENCIES=$SERIALIZATION_RUNTIME:$COROUTINES_CORE:$COROUTINES_CORE_JVM:$APACHE_COMMON:$IROHA_ED25519:$JNA
-   cmd-timed "kotlinc -d $PEN -cp $DEPENDENCIES -Xmulti-platform -Xplugin=$SERIALIZATION_COMPILER_PLUGIN src/commonMain src/jvmMain"
+   cmd-timed "kotlinc -d $PEF -cp $DEPENDENCIES -Xmulti-platform -Xplugin=$SERIALIZATION_COMPILER_PLUGIN src/commonMain src/jvmMain"
 
 ###  Wasm  ###
 elif [ $task = "wasm" ]; then
@@ -29,8 +29,8 @@ elif [ $task = "wasm" ]; then
 
    else
       echo Compiling..
-      cmd-timed "kotlinc-native -o pen -target wasm32 -Xmulti-platform src/commonMain src/native_serializtion_hack"
-      mv pen.wasm pen.wasm.js build/dist/platform/wasm32
+      cmd-timed "kotlinc-native -o pef -target wasm32 -Xmulti-platform src/commonMain src/native_serializtion_hack"
+      mv pef.wasm pef.wasm.js build/dist/platform/wasm32
 # -g -generate debug DWARF information usaful to the GDB
 
    fi
@@ -60,12 +60,12 @@ elif [ $1 = "linux" ]; then
 
 ###  Utils  ###
 elif [ $task = "utils" ]; then
-   kotlinc -d $PEN_UTILS -cp $PEN -Xmulti-platform src/commonUtils
+   kotlinc -d $PEF_UTILS -cp $PEF -Xmulti-platform src/commonUtils
 
 ###  Api  ###
 elif [ $task = "docs" ]; then
    echo "Building docs.." ; echo
-   java -jar $DOKKA_FATJAR -src src/commonMain;src/jvmMain -outputDir build/docs/pen/api 
+   java -jar $DOKKA_FATJAR -src src/commonMain;src/jvmMain -outputDir build/docs/pef/api 
 
 else
    printUsage

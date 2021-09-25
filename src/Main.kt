@@ -1,7 +1,7 @@
 package sim
 
-import pen.Log
-import pen.LogLevel
+import pef.Log
+import pef.LogLevel
 import sim.gui.GUI
 import sim.gui.KFrame
 import sim.simulations.formosa.KFormosa

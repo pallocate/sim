@@ -1,11 +1,11 @@
 package sim
 
-import pen.now
-import pen.IrohaSignatory
+import pef.now
+import pef.IrohaSignatory
 import iroha.protocol.Queries.Query.Payload
 import iroha.protocol.Queries.*
 import kick.createSignature
-import pen.utils.Credmin
+import pef.utils.Credmin
 
 /** Builds account related queries. */
 class KAccountQueryBuilder (

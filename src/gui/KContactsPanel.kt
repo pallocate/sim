@@ -8,7 +8,7 @@ import javax.swing.ScrollPaneConstants
 import javax.swing.ListSelectionModel
 import javax.swing.event.ListSelectionListener
 import javax.swing.event.ListSelectionEvent
-import pen.par.KContact
+import pef.par.KContact
 import kick.KSubmiter
 import sim.KAccountQueryBuilder
 

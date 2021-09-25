@@ -1,6 +1,6 @@
 package sim
 
-import pen.Log
+import pef.Log
 import sim.gui.GUI
 
 /** Steps through a animation. */

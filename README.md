@@ -1,3 +1,3 @@
-### Simulator for [PEN](https://github.com/pallocate/pen)
+## Simulator for [PEF](https://github.com/pallocate/pef)
 
-A simulator for running participatory economy payment simulations on a Iroha blockchain peer.
+A simulator for running participatory economy credit simulations on a single Iroha blockchain peer.

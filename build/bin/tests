@@ -8,9 +8,9 @@ if [ $2 ]; then
 fi
 
 case $1 in
-   "pen")
-      cd /home/projects/pen/pen
-      DEPENDENCIES=$JUNIT:$STDLIB:$PEN:$PEN_TESTS:$REFLECT:$SERIAL_RUN
+   "pef")
+      cd /home/projects/pef/pef
+      DEPENDENCIES=$JUNIT:$STDLIB:$PEF:$PEF_TESTS:$REFLECT:$SERIAL_RUN
 
       if [ $test = "all" ]; then
          echo "Running tests.."

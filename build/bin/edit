@@ -1,0 +1,27 @@
+#!/bin/sh
+
+case $1 in
+   "pef")
+      cd /home/projects/pef/pef
+      kate README.md
+   ;;
+
+   "kick")
+      cd /home/projects/kick/kick
+      kate README.md
+   ;;
+
+   "sim")
+      cd /home/projects/sim/sim
+      kate README.md
+   ;;
+
+   "tedit")
+      cd /home/projects/tedit/tedit
+      kate README.md
+   ;;
+
+   *)
+      echo "Usage: edit [pef|kick|sim|tedit]"
+   ;;
+esac

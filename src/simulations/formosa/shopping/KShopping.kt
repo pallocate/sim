@@ -1,6 +1,6 @@
 package sim.simulations.formosa.shopping
 
-import pen.utils.Contacts
+import pef.utils.Contacts
 import kick.*
 import sim.*
 import sim.KAnimator.KAnimation

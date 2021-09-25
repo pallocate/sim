@@ -3,7 +3,7 @@
 cd /home/projects/build/bin/build-scripts
 
 case $1 in
-   "tedit" | "kick" | "pen" | "sim" | "plugins")
+   "tedit" | "kick" | "pef" | "sim" | "plugins")
        ./$1 $2 $3
    ;;
 
@@ -11,7 +11,7 @@ case $1 in
       echo "Usage: build project [options]"
       echo
       echo "Projects:"
-      echo "tedit     kick           pen"
-      echo "sim       plugins"
+      echo "tedit          kick           pef"
+      echo "sim            plugins"
    ;;
 esac

@@ -1,8 +1,8 @@
 package sim.simulations.formosa.shopping
 
-import pen.now
-import pen.eco.*
-import pen.utils.ClothesShop
+import pef.now
+import pef.eco.*
+import pef.utils.ClothesShop
 import kick.*
 import iroha.protocol.Transaction
 import iroha.protocol.payload

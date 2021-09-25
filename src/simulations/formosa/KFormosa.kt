@@ -1,7 +1,7 @@
 package sim.simulations.formosa
 
 import javax.swing.ImageIcon
-import pen.Log
+import pef.Log
 import kick.KSetuper
 import sim.Simulation
 import sim.gui.SimulationPanel

@@ -7,9 +7,9 @@ import javax.swing.JPanel
 import javax.swing.JTextArea
 import javax.swing.text.DefaultCaret
 import javax.swing.JScrollPane
-import pen.LogManager
-import pen.LogAgent
-import pen.LogLevel
+import pef.LogManager
+import pef.LogAgent
+import pef.LogLevel
 
 /** To show log output. */
 class KLogPanel : JPanel(), LogAgent

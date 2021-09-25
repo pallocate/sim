@@ -4,7 +4,7 @@ import java.awt.Image
 import java.awt.image.BufferedImage
 import javax.swing.ImageIcon
 import kotlinx.coroutines.*
-import pen.newScope
+import pef.newScope
 import sim.gui.SimulationPanel
 import sim.gui.VoidSimulationPanel
 

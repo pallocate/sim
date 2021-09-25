@@ -12,7 +12,7 @@ printUsage () {
 }
 
 PLUGINS_DIR="build/dist/platform/jvm/plugins"
-DEPENDENCIES=$JNA:$PEN:$EXPOSED
+DEPENDENCIES=$JNA:$PEF:$EXPOSED
 
 task="all"
 if [ $1 ]; then
@@ -33,7 +33,7 @@ elif [ $task = "api" ]; then
 
 ###  Tests  ###
 elif [ $task = "tests" ]; then
-   DEPENDENCIES=$JUNIT:$PLUGINS:$PEN_TESTS:$DEPENDENCIES
+   DEPENDENCIES=$JUNIT:$PLUGINS:$DEPENDENCIES
    kotlinc -d $PLUGINS_DIR/examples.jar -cp $DEPENDENCIES -Xmulti-platform src/common_tests
    if [ $? -eq 0 ]; then
       cmd-timed "kotlinc -d build/dist/platform/jvm/plugins/tests.jar -cp $DEPENDENCIES:$PLUGINS_DIR/examples.jar -Xmulti-platform src/jvm_tests"
